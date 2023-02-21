@@ -16,4 +16,10 @@ Backend for aahar app
 
 ## Additional Steps for Windows user
 
-sqlc the package used to generate the go code from sql code doesn't work in windows for postgres for that you need to install wsl and then install homebrew in it and then use the command make sqlc in order to generate the go code from sql query.
+**sqlc** the package used to generate the go code from sql code doesn't work in windows for postgres so make sqlc will throw an error.
+
+To make it work on windows you need to install wsl and then install homebrew in it.
+
+After that install sqlc using homebrew.
+
+Finally you can use `make sqlc` in order to generate the go code from sql query and schema.
