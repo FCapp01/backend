@@ -1,0 +1,5 @@
+DROP DATABASE restaurant;
+DROP DATABASE menu;
+DROP DATABASE item;
+DROP DATABASE order;
+DROP DATABASE payment;
