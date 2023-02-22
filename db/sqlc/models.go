@@ -2,49 +2,50 @@
 // versions:
 //   sqlc v1.17.0
 
-package backend
+package db
 
 import (
 	"database/sql"
+	"time"
 )
 
 type Item struct {
 	ID          int32          `json:"id"`
-	MenuID      sql.NullInt32  `json:"menuID"`
-	Name        sql.NullString `json:"name"`
+	MenuID      int32          `json:"menuID"`
+	Name        string         `json:"name"`
 	Description sql.NullString `json:"description"`
 	Image       sql.NullString `json:"image"`
-	Price       sql.NullString `json:"price"`
+	Price       string         `json:"price"`
 	UpdatedAt   sql.NullTime   `json:"updatedAt"`
 }
 
 type Menu struct {
 	ID           int32          `json:"id"`
-	RestaurantID sql.NullInt32  `json:"restaurantID"`
-	Name         sql.NullString `json:"name"`
+	RestaurantID int32          `json:"restaurantID"`
+	Name         string         `json:"name"`
 	Description  sql.NullString `json:"description"`
-	UpdatedAt    sql.NullTime   `json:"updatedAt"`
+	UpdatedAt    time.Time      `json:"updatedAt"`
 }
 
 type Order struct {
-	ID                  int32          `json:"id"`
-	RestaurantID        sql.NullInt32  `json:"restaurantID"`
-	CustomerName        sql.NullString `json:"customerName"`
-	CustomerAddress     sql.NullString `json:"customerAddress"`
-	CustomerPhoneNumber sql.NullString `json:"customerPhoneNumber"`
-	OrderTime           sql.NullTime   `json:"orderTime"`
+	ID                  int32     `json:"id"`
+	RestaurantID        int32     `json:"restaurantID"`
+	CustomerName        string    `json:"customerName"`
+	CustomerAddress     string    `json:"customerAddress"`
+	CustomerPhoneNumber string    `json:"customerPhoneNumber"`
+	OrderTime           time.Time `json:"orderTime"`
 }
 
 type Payment struct {
-	ID      int32          `json:"id"`
-	OrderID sql.NullInt32  `json:"orderID"`
-	Amount  sql.NullString `json:"amount"`
+	ID      int32  `json:"id"`
+	OrderID int32  `json:"orderID"`
+	Amount  string `json:"amount"`
 }
 
 type Restaurant struct {
-	ID          int32          `json:"id"`
-	Name        sql.NullString `json:"name"`
-	Address     sql.NullString `json:"address"`
-	PhoneNumber sql.NullString `json:"phoneNumber"`
-	Email       sql.NullString `json:"email"`
+	ID          int32  `json:"id"`
+	Name        string `json:"name"`
+	Address     string `json:"address"`
+	PhoneNumber string `json:"phoneNumber"`
+	Email       string `json:"email"`
 }
