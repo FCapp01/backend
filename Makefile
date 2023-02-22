@@ -25,4 +25,7 @@ destroy:
 	docker stop aahar-pg
 	docker rm aahar-pg
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc build destroy
+test:
+	go test -v -cover ./...
+
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc destroy sqlc-win test
